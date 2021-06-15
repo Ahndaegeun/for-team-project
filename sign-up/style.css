@@ -1,0 +1,116 @@
+@import url(reset.css);
+/* Common */
+button, [type=button] {
+  outline: none;
+  border: none;
+  font-size: 24px;
+  background: #03c75a;
+  color: #fff;
+  cursor: pointer;
+}
+
+#user-id:focus {
+  border: 1px solid black;
+  outline: none;
+}
+
+/* Main */
+.body__container {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f7;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sign-up-frm {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+label {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.frm-input {
+  margin-bottom: 15px;
+  padding: 10px 5px;
+  font-size: 24px;
+}
+
+.inner-wrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.addr-num {
+  width: 70%;
+  margin: 0;
+  margin-right: 10px;
+}
+
+#addr-btn {
+  width: 30%;
+}
+
+.inner-wrapper.second {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inner-wrapper.second * {
+  width: 47%;
+}
+
+.user-birth-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.user-birth-wrapper input {
+  font-size: 24px;
+  padding: 10px 5px;
+  width: 30%;
+}
+
+.phone-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+#user-phone {
+  width: 70%;
+  padding: 10px 5px;
+  font-size: 24px;
+}
+
+.phone-btn {
+  width: 25%;
+}
+
+.frm-submit-btn {
+  padding: 10px 0;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+  background: #cdcecf;
+}
+
+footer p {
+  font-size: 20px;
+  color: #fff;
+}

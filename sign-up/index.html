@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+<div class="body__container">
+  <h1>Title</h1>
+  <form class="sign-up-frm" name="sign-up-frm" action="/" method="post">
+    <label for="user-id">ID</label>
+    <input id="user-id" class="frm-input" type="text" name="user-id">
+    <span class="user-id-wranning"></span>
+
+    <label for="user-pw">Password</label>
+    <input id="user-pw" class="frm-input" type="password" name="user-pw">
+
+    <label for="user-pw-check">Password</label>
+    <input id="user-pw-check" class="frm-input" type="password">
+
+    <label for="user-name">Name</label>
+    <input id="user-name" class="frm-input" type="text" name="user-name">
+
+
+    <label for="addr-btn">Address</label>
+    <div class="inner-wrapper">
+      <input class="frm-input addr-num" type="text" id="sample6_postcode" placeholder="우편번호" disabled>
+      <input id="addr-btn" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+    </div>
+    <input class="frm-input addr" type="text" id="sample6_address" placeholder="주소">
+    <div class="inner-wrapper second">
+      <input class="frm-input addr-detail" type="text" id="sample6_detailAddress" placeholder="상세주소">
+      <input class="frm-input addr-ref" type="text" id="sample6_extraAddress" placeholder="참고항목">
+    </div>
+
+
+    <label for="user-birth">Birth Day</label>
+    <div class="user-birth-wrapper frm-input">
+      <input id="user-birth" type="text" placeholder="year" name="user-birth-year">
+      <input list="month" placeholder="Month" name="user-birth-month">
+      <datalist id="month">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        <option value="9">
+        <option value="10">
+        <option value="11">
+        <option value="12">
+      </datalist>
+      <input type="text" placeholder="day" name="user-birth-day">
+    </div>
+
+    <label for="">Gender</label>
+    <input list="user-gender" class="frm-input hi" placeholder="Gender" name="user-gender">
+    <datalist id="user-gender">
+      <option value="Man">
+      <option value="Woman">
+      <option value="none">
+    </datalist>
+
+    <label for="user-email">E-mail</label>
+    <input id="user-email" class="frm-input" type="email" name="user-eamil">
+
+    <label for="user-phone">Phone Number</label>
+    <div class="phone-wrapper frm-input">
+      <input id="user-phone" type="tel" name="user-phone">
+      <button class="phone-btn" type="button">license</button>
+    </div>
+    <input type="text" class="frm-input" placeholder="insert license Number">
+
+    <button class="frm-submit-btn" type="button">submit</button>
+  </form>
+</div>
+<footer>
+  <p>If you need a footer, put it here</p>
+</footer>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+var themeObj = {
+   searchBgColor: "#0B65C8", //검색창 배경색
+   queryTextColor: "#FFFFFF" //검색창 글자색
+};
+function sample6_execDaumPostcode() {
+  new daum.Postcode({
+    oncomplete: function(data) {
+      var addr = ''; // 주소 변수
+      var extraAddr = ''; // 참고항목 변수
+      if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+        addr = data.roadAddress;
+      } else { // 사용자가 지번 주소를 선택했을 경우(J)
+        addr = data.jibunAddress;
+      }
+      if(data.userSelectedType === 'R'){
+        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+          extraAddr += data.bname;
+        }
+        if(data.buildingName !== '' && data.apartment === 'Y'){
+          extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+        }
+        if(extraAddr !== ''){
+          extraAddr = ' (' + extraAddr + ')';
+        }
+        document.getElementById("sample6_extraAddress").value = extraAddr;
+      } else {
+        document.getElementById("sample6_extraAddress").value = '';
+      }
+      document.getElementById('sample6_postcode').value = data.zonecode;
+      document.getElementById("sample6_address").value = addr;
+      document.getElementById("sample6_detailAddress").focus();
+  },
+  theme: themeObj}).open();
+}
+</script>
+</body>
+</html>

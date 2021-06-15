@@ -1,0 +1,18 @@
+@import url(reset.css);
+
+.body__container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: cornsilk;
+}
+
+#map {
+  width: 1600px;
+  height: 800px;
+}
+
+.wrap {
+  background: white;
+}
