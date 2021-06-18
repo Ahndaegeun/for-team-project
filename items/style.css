@@ -1,0 +1,90 @@
+@import url(./reset.css);
+
+* {
+  box-sizing: border-box;
+}
+
+.body__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.search-bar {
+  padding: 20px;
+  background: rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-wrap {
+  position: relative;
+  width: 70%;
+  min-width: 400px;
+}
+
+.search {
+  font-size: 24px;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-bottom: 2px solid rgb(5, 205, 255);
+  width: 100%;
+}
+
+.glass {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 0;
+}
+
+
+
+
+
+.mini-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: antiquewhite;
+  padding: 20px;
+}
+
+.mini-board-wrap {
+  width: 90%;
+  height: 480px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.mini-board-wrap::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.mini-board-img {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+.drop-down-menu {
+  background: rgb(230, 230, 230);
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
